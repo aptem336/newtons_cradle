@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="NewtonCradle" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="com.yakushev.GLMain" />
+    <module name="newtons_cradle" />
+    <option name="VM_PARAMETERS" value="-Djogl.disable.openglcore" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
