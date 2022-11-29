@@ -4,10 +4,11 @@ import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.util.gl2.GLUT;
 import com.yakushev.Displayable;
+import com.yakushev.physic.Gravitated;
 import com.yakushev.physic.Integrated;
 import com.yakushev.physic.Vector3D;
 
-public class Ball implements Displayable, TimeVarying, Integrated {
+public class Ball implements Displayable, TimeVarying, Integrated, Gravitated {
     private final double r;
     private final Vector3D location;
     private final Vector3D velocity;
@@ -32,6 +33,7 @@ public class Ball implements Displayable, TimeVarying, Integrated {
     @Override
     public void vary() {
         integrate();
+        gravitate();
     }
 
     @Override
