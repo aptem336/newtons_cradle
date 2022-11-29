@@ -12,6 +12,7 @@ public class GLSettings {
     private static final java.util.List<GLEventListener> GL_EVENT_LISTENERS = new ArrayList<GLEventListener>() {{
         add(new Base3GLEventListener());
         add(CAMERA_GL_EVENT_LISTENER);
+        add(new StaticLightGLEventListener(new int[]{0, 0, 1, 0}));
     }};
     private static final java.util.List<KeyListener> KEY_LISTENERS = new ArrayList<KeyListener>() {{
         add(CAMERA_GL_EVENT_LISTENER);
