@@ -18,6 +18,7 @@ public class GLMain {
         canvas.setSize(mainFrame.getSize());
         GLSettings.getGlEventListeners().forEach(canvas::addGLEventListener);
         GLSettings.getKeyListeners().forEach(canvas::addKeyListener);
+        GLSettings.getMouseWheelListeners().forEach(canvas::addMouseWheelListener);
         mainFrame.add(canvas);
 
         Animator animator = new Animator(canvas);
