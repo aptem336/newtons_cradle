@@ -5,6 +5,8 @@ import com.yakushev.newtoncradle.NewtonCradleGLEventListener;
 
 import java.awt.*;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelListener;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +27,13 @@ public class GLSettings {
     private static final java.util.List<MouseWheelListener> MOUSE_WHEEL_LISTENERS = new ArrayList<MouseWheelListener>() {{
         add(NEWTON_CRADLE_GL_EVENT_LISTENER);
     }};
+    private static final java.util.List<MouseMotionListener> MOUSE_MOTION_LISTENERS = new ArrayList<MouseMotionListener>() {{
+        add(NEWTON_CRADLE_GL_EVENT_LISTENER);
+    }};
+
+    private static final java.util.List<MouseListener> MOUSE_LISTENERS = new ArrayList<MouseListener>() {{
+        add(NEWTON_CRADLE_GL_EVENT_LISTENER);
+    }};
 
     private static final Dimension MAIN_FRAME_SIZE = new Dimension(1000, 1000);
     private static final Color3f CLEAR_COLOR = new Color3f(0.1F, 0.1F, 0.1F);
@@ -39,6 +48,14 @@ public class GLSettings {
 
     public static List<MouseWheelListener> getMouseWheelListeners() {
         return MOUSE_WHEEL_LISTENERS;
+    }
+
+    public static List<MouseMotionListener> getMouseMotionListeners() {
+        return MOUSE_MOTION_LISTENERS;
+    }
+
+    public static List<MouseListener> getMouseListeners() {
+        return MOUSE_LISTENERS;
     }
 
     public static Dimension getMainFrameSize() {

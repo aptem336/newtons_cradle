@@ -40,7 +40,10 @@ public class NewtonGradle implements Displayable, TimeVarying {
             ball.getLocation().add(suspensionConstraintInitialRelax);
         }
         this.rack = new Rack(ballsCount, ballsR, fiberLen);
-        balls.get(0).getVelocity().add(new Vector3D(-0.5 / PhysicConstants.TIME_INTEGRATOR, 0.0, 0.0));
+    }
+
+    public List<Ball> getBalls() {
+        return balls;
     }
 
     @Override

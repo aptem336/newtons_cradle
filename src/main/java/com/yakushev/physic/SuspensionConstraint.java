@@ -8,12 +8,16 @@ public class SuspensionConstraint implements Constraint {
     private final double constraintLen;
 
 
-    public SuspensionConstraint(Vector3D velocity, Vector3D suspensionLocation, Vector3D location) {
+    public SuspensionConstraint(Vector3D velocity, Vector3D suspensionLocation, Vector3D location, double constraintSquareLen) {
         this.velocity = velocity;
         this.suspensionLocation = suspensionLocation;
         this.location = location;
-        this.constraintSquareLen = Vector3D.sum(suspensionLocation, location.getInvert()).squareLen();
+        this.constraintSquareLen = constraintSquareLen;
         this.constraintLen = Math.sqrt(constraintSquareLen);
+    }
+
+    public SuspensionConstraint(Vector3D velocity, Vector3D suspensionLocation, Vector3D location) {
+        this(velocity, suspensionLocation, location, Vector3D.sum(suspensionLocation, location.getInvert()).squareLen());
     }
 
     @Override
