@@ -15,6 +15,7 @@ public class NewtonCradleGLEventListener implements GLEventListener, KeyListener
     private static final double DEFAULT_FIBER_LEN = 10;
     private static final int MIN_BALLS_COUNT = 2;
     private static final int MAX_BALLS_COUNT = 15;
+    private static boolean VARY = true;
     private int ballsCount = DEFAULT_BALLS_COUNT;
     private double ballsR = DEFAULT_BALLS_R;
     private double fiberLen = DEFAULT_FIBER_LEN;
@@ -40,7 +41,9 @@ public class NewtonCradleGLEventListener implements GLEventListener, KeyListener
     public void display(GLAutoDrawable glAutoDrawable) {
         GL2 gl = glAutoDrawable.getGL().getGL2();
 
-        newtonGradle.vary();
+        if (VARY) {
+            newtonGradle.vary();
+        }
         gl.glTranslated(-(ballsCount - 1) * ballsR, -fiberLen / 2.0 + ballsR, 0.0);
         newtonGradle.display(glAutoDrawable);
         if (mousePressed) {
@@ -88,6 +91,8 @@ public class NewtonCradleGLEventListener implements GLEventListener, KeyListener
             ballsR = DEFAULT_BALLS_R;
             fiberLen = DEFAULT_FIBER_LEN;
             newtonGradle = new NewtonGradle(ballsCount, ballsR, fiberLen);
+        } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            VARY = !VARY;
         }
     }
 
