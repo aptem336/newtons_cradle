@@ -8,11 +8,16 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class RotateGLEventListener implements GLEventListener, KeyListener {
+    private static final String CONTROLS_DESCRIPTION = "W,S,D,A,Q,E - camera controlling, ESC - reset";
     private static final double ANGLE_INCREMENT = 5;
     private static final double R_INCREMENT = 5;
     private double polarAngle = 0;
     private double azimuthalAngle = 0;
     private double r = 50;
+
+    static {
+        GLSettings.getMessages().add(CONTROLS_DESCRIPTION);
+    }
     @Override
     public void init(GLAutoDrawable glAutoDrawable) {
     }

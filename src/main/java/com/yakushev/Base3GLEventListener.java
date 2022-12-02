@@ -4,6 +4,7 @@ import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.glu.GLU;
+import com.jogamp.opengl.util.gl2.GLUT;
 
 public class Base3GLEventListener implements GLEventListener {
 
@@ -40,11 +41,17 @@ public class Base3GLEventListener implements GLEventListener {
     @Override
     public void display(GLAutoDrawable glAutoDrawable) {
         GL2 gl = glAutoDrawable.getGL().getGL2();
+        GLUT glut = new GLUT();
 
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
         gl.glClear(GL2.GL_DEPTH_BUFFER_BIT);
 
         gl.glLoadIdentity();
+
+        for (int i = 0; i < GLSettings.getMessages().size(); i++) {
+            gl.glWindowPos2i(10, GLSettings.getMainFrameSize().height - 20 - 20 * i);
+            glut.glutBitmapString(GLUT.BITMAP_9_BY_15, GLSettings.getMessages().get(i));
+        }
     }
 
     /**

@@ -3,6 +3,7 @@ package com.yakushev.newtoncradle;
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
+import com.yakushev.GLSettings;
 import com.yakushev.physic.ScreenSpaceProjection;
 import com.yakushev.physic.SuspensionConstraint;
 import com.yakushev.physic.Vector3D;
@@ -10,6 +11,7 @@ import com.yakushev.physic.Vector3D;
 import java.awt.event.*;
 
 public class NewtonCradleGLEventListener implements GLEventListener, KeyListener, MouseWheelListener, MouseMotionListener, MouseListener {
+    private static final String CONTROLS_DESCRIPTION = "MouseWheel - balls count, MouseLeftButton - ball interaction, Space - start, stop";
     private static final int DEFAULT_BALLS_COUNT = 5;
     private static final double DEFAULT_BALLS_R = 1;
     private static final double DEFAULT_FIBER_LEN = 10;
@@ -27,6 +29,10 @@ public class NewtonCradleGLEventListener implements GLEventListener, KeyListener
     private Vector3D mouseLocationUnProject;
     private SuspensionConstraint mouseSuspensionConstraint;
     private Ball ball;
+
+    static {
+        GLSettings.getMessages().add(CONTROLS_DESCRIPTION);
+    }
 
     @Override
     public void init(GLAutoDrawable glAutoDrawable) {

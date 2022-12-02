@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GLSettings {
+    private static final List<String> MESSAGES = new ArrayList<>();
     private static final RotateGLEventListener CAMERA_GL_EVENT_LISTENER = new RotateGLEventListener();
     private static final NewtonCradleGLEventListener NEWTON_CRADLE_GL_EVENT_LISTENER = new NewtonCradleGLEventListener();
     private static final java.util.List<GLEventListener> GL_EVENT_LISTENERS = new ArrayList<GLEventListener>() {{
@@ -64,5 +65,9 @@ public class GLSettings {
 
     public static Color3f getClearColor() {
         return CLEAR_COLOR;
+    }
+
+    public static List<String> getMessages() {
+        return MESSAGES;
     }
 }
